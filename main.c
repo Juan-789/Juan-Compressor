@@ -1,6 +1,6 @@
 //Juan-compressor, makes a txt file compress with the .juan extension
 #include <stdio.h>
-
+#include "huffman.h"
 
 
 int main(int argc, char *argv[]) {  //gcc main.c wtv wtv, and the file to compress
@@ -53,9 +53,10 @@ int main(int argc, char *argv[]) {  //gcc main.c wtv wtv, and the file to compre
         }
     }
     for (int i=0; i<uniqueChars;i++){
-        printf("character %c and number %d, index %d\n", charArray[i], freqArray[i], i);
+        printf("character %c and number %d\n", charArray[i], freqArray[i]);
     }
     fclose(fptr);
+    huffmanTree(charArray, freqArray, uniqueChars, charsTotal);
 
     return 0;
 }
